@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom-v5-compat';
-import { Brand, Masthead, MastheadBrand, MastheadMain, Page } from '@patternfly/react-core';
+import { Brand, Masthead, MastheadLogo, MastheadMain, MastheadBrand, Page } from '@patternfly/react-core';
 import { Provider } from 'react-redux';
 import { Store, useFeatureDetection } from '@openshift-assisted/ui-lib/ocm';
 import { FeatureListType } from '@openshift-assisted/ui-lib/lib/common';
@@ -27,7 +27,7 @@ export const App: React.FC = () => {
   const header = (
     <Masthead id="masthead">
       <MastheadMain>
-        <MastheadBrand>
+        <MastheadBrand data-codemods><MastheadLogo data-codemods>
           <Brand
             src="/logo.svg"
             alt="OpenShift Container Platform Assisted Installer"
@@ -35,7 +35,7 @@ export const App: React.FC = () => {
           >
             <source src="/logo.svg" />
           </Brand>
-        </MastheadBrand>
+        </MastheadLogo></MastheadBrand>
       </MastheadMain>
     </Masthead>
   );
@@ -43,7 +43,7 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Provider store={Store.storeDay1}>
-        <Page header={header} isManagedSidebar defaultManagedSidebarIsOpen={false}>
+        <Page masthead={header} isManagedSidebar defaultManagedSidebarIsOpen={false}>
           <AppRouter />
         </Page>
       </Provider>

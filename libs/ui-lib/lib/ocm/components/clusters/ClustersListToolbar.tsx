@@ -181,7 +181,7 @@ const ClustersListToolbar: React.FC<ClustersListToolbarProps> = ({
           Create Cluster
         </ToolbarButton>
         {clustersUIState === ResourceUIState.RELOADING && <Spinner size="lg" />}
-        <ToolbarGroup align={{ lg: 'alignRight' }}>
+        <ToolbarGroup align={{ lg: "alignEnd" }}>
           <ToolbarButton
             variant={ButtonVariant.plain}
             onClick={() => fetchClusters()}

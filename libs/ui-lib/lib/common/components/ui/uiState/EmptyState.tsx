@@ -4,7 +4,6 @@ import {
   EmptyState as PFEmptyState,
   EmptyStateBody,
   Bullseye,
-  EmptyStateIcon,
   EmptyStateIconProps,
   EmptyStateActions,
 } from '@patternfly/react-core';
@@ -26,9 +25,7 @@ const EmptyState: React.FC<Props> = ({
   secondaryActions,
 }) => (
   <Bullseye>
-    <PFEmptyState>
-      <EmptyStateIcon icon={icon} />
-      <Title headingLevel="h2">{title}</Title>
+    <PFEmptyState titleText={<Title headingLevel="h2">{title}</Title>} icon={icon}>
       {content && <EmptyStateBody>{content}</EmptyStateBody>}
       {primaryAction}
       {secondaryActions && <EmptyStateActions>{secondaryActions}</EmptyStateActions>}

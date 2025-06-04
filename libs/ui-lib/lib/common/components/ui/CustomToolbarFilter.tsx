@@ -2,15 +2,14 @@
 // Once this issues is addressed in PatternFly, this component should be removed.
 
 import {
-  Chip,
-  ChipGroup,
-  PickOptional,
-  ToolbarChip,
-  ToolbarContentContext,
-  ToolbarContext,
-  ToolbarFilterProps,
-  ToolbarItem,
+	Label, LabelGroup, PickOptional,
+	ToolbarLabel,
+	ToolbarContentContext,
+	ToolbarContext,
+	ToolbarFilterProps,
+	ToolbarItem
 } from '@patternfly/react-core';
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -23,7 +22,7 @@ class CustomToolbarFilter extends React.Component<ToolbarFilterProps, ToolbarFil
   static contextType = ToolbarContext;
   context!: React.ContextType<typeof ToolbarContext>;
   static defaultProps: PickOptional<ToolbarFilterProps> = {
-    chips: [] as (string | ToolbarChip)[],
+    chips: [] as (string | ToolbarLabel)[],
     showToolbarItem: true,
   };
 
@@ -78,8 +77,8 @@ class CustomToolbarFilter extends React.Component<ToolbarFilterProps, ToolbarFil
 
     const chipGroup =
       chips !== undefined && chips.length ? (
-        <ToolbarItem variant="chip-group">
-          <ChipGroup
+        <ToolbarItem variant="label-group">
+          <LabelGroup
             key={categoryKey}
             categoryName={typeof categoryName === 'string' ? categoryName : categoryName.name}
             isClosable={deleteChipGroup !== undefined}
@@ -89,16 +88,16 @@ class CustomToolbarFilter extends React.Component<ToolbarFilterProps, ToolbarFil
           >
             {chips.map((chip) =>
               typeof chip === 'string' ? (
-                <Chip key={chip} onClick={() => deleteChip && deleteChip(categoryKey, chip)}>
+                <Label variant="outline" key={chip} onClose={() => deleteChip && deleteChip(categoryKey, chip)}>
                   {chip}
-                </Chip>
+                </Label>
               ) : (
-                <Chip key={chip.key} onClick={() => deleteChip && deleteChip(categoryKey, chip)}>
+                <Label variant="outline" key={chip.key} onClose={() => deleteChip && deleteChip(categoryKey, chip)}>
                   {chip.node}
-                </Chip>
+                </Label>
               ),
             )}
-          </ChipGroup>
+          </LabelGroup>
         </ToolbarItem>
       ) : null;
 

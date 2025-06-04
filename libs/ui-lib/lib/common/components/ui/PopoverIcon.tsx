@@ -26,7 +26,9 @@ const PopoverIcon: React.FC<PopoverIconProps> = ({
   ...props
 }) => (
   <Popover {...props}>
-    <Button
+    <Button icon={<Icon isInline={noVerticalAlign}>
+        <IconComponent />
+      </Icon>}
       component={component}
       variant={variant}
       onClick={(e) => e.preventDefault()}
@@ -34,9 +36,7 @@ const PopoverIcon: React.FC<PopoverIconProps> = ({
       ouiaId={buttonOuiaId}
       style={buttonStyle}
     >
-      <Icon isInline={noVerticalAlign}>
-        <IconComponent />
-      </Icon>
+      
     </Button>
   </Popover>
 );

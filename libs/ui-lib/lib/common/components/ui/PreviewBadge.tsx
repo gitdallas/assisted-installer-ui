@@ -39,7 +39,7 @@ export const PreviewBadge: React.FC<PreviewBadgeProps> = ({
   }
   const bodyContent = (
     <>
-      <div style={{ marginBottom: 'var(--pf-v5-global--spacer--sm)' }}>{popoverContent}</div>
+      <div style={{ marginBottom: "var(--pf-t--global--spacer--sm)" }}>{popoverContent}</div>
       {externalLink && (
         <>
           <ExternalLink href={externalLink}>{t('ai:Learn more')}</ExternalLink>
@@ -53,7 +53,7 @@ export const PreviewBadge: React.FC<PreviewBadgeProps> = ({
         <Label
           style={{ cursor: 'pointer' }}
           color="orange"
-          icon={<InfoCircleIcon color="var(--pf-v5-c-label__content--Color)" />}
+          icon={<InfoCircleIcon color="var(--pf-v5-c-label__content--Color)" />} //CODEMODS TODO: update color https://staging-v6.patternfly.org/tokens/all-patternfly-tokens
           className={clsName}
           {...(testId ? { 'data-testid': testId } : {})}
         >

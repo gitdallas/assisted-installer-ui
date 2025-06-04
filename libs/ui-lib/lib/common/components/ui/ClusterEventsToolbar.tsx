@@ -5,7 +5,7 @@ import {
   ToolbarItem,
   ToolbarContent,
   ToolbarFilter,
-  ToolbarChip,
+  ToolbarLabel,
   Button,
   ButtonVariant,
   InputGroup,
@@ -87,15 +87,15 @@ const mapHostsChips = (
   t: TFunction,
   filters: ClusterEventsFiltersType,
   hosts: { id: string; hostname?: string }[],
-): ToolbarChip[] => {
+): ToolbarLabel[] => {
   const chips = [
     filters.deletedHosts && { key: DELETED_HOSTS, node: t('ai:Deleted hosts') },
     filters.clusterLevel && { key: CLUSTER_LEVEL, node: t('ai:Cluster-level events') },
     ...(hosts || [])
       .filter((host) => filters.hostIds?.includes(host.id))
-      .map((host): ToolbarChip => ({ key: host.id, node: host.hostname })),
+      .map((host): ToolbarLabel => ({ key: host.id, node: host.hostname })),
   ];
-  return chips.filter(Boolean) as ToolbarChip[];
+  return chips.filter(Boolean) as ToolbarLabel[];
 };
 
 const ClusterEventsToolbar = ({
@@ -285,16 +285,16 @@ const ClusterEventsToolbar = ({
         )}
 
         <ToolbarFilter
-          chips={filters.severities?.map(
-            (severity): ToolbarChip => ({
+          labels={filters.severities?.map(
+            (severity): ToolbarLabel => ({
               key: severity,
               node: capitalize(severity),
             }),
           )}
-          deleteChip={(_, chip) =>
+          deleteLabel={(_, chip) =>
             onSeveritySelect(typeof chip === 'string' ? chip : chip.key, false)
           }
-          deleteChipGroup={onDeleteChipGroup}
+          deleteLabelGroup={onDeleteChipGroup}
           categoryName="Severity"
         >
           <Dropdown
@@ -349,8 +349,8 @@ const ClusterEventsToolbar = ({
               />
             </InputGroupItem>
             <InputGroupItem>
-              <Button variant={ButtonVariant.control} aria-label="search text button">
-                <SearchIcon />
+              <Button icon={<SearchIcon />} variant={ButtonVariant.control} aria-label="search text button">
+                
               </Button>
             </InputGroupItem>
           </InputGroup>

@@ -101,7 +101,7 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
   });
 
   return (
-    <FormGroup fieldId={fieldId} label={label} isRequired={isRequired} labelIcon={labelIcon}>
+    <FormGroup fieldId={fieldId} label={label} isRequired={isRequired} labelHelp={labelIcon}>
       <Dropdown
         id={fieldId}
         isOpen={isOpen}
