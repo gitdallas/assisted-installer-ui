@@ -83,19 +83,19 @@ export const getInitialClusterEventsFilters = (
   deletedHosts: false,
 });
 
-const mapHostsChips = (
+const mapHostsLabels = (
   t: TFunction,
   filters: ClusterEventsFiltersType,
   hosts: { id: string; hostname?: string }[],
 ): ToolbarLabel[] => {
-  const chips = [
+  const labels = [
     filters.deletedHosts && { key: DELETED_HOSTS, node: t('ai:Deleted hosts') },
     filters.clusterLevel && { key: CLUSTER_LEVEL, node: t('ai:Cluster-level events') },
     ...(hosts || [])
       .filter((host) => filters.hostIds?.includes(host.id))
       .map((host): ToolbarLabel => ({ key: host.id, node: host.hostname })),
   ];
-  return chips.filter(Boolean) as ToolbarLabel[];
+  return labels.filter(Boolean) as ToolbarLabel[];
 };
 
 const ClusterEventsToolbar = ({
@@ -178,7 +178,7 @@ const ClusterEventsToolbar = ({
     setTimer(newTimer);
   };
 
-  const onDeleteChipGroup: ToolbarFilterProps['deleteChipGroup'] = (type) => {
+  const onDeleteLabelGroup: ToolbarFilterProps['deleteLabelGroup'] = (type) => {
     if (type === 'Severity') {
       setFilters({
         ...filters,
@@ -209,7 +209,7 @@ const ClusterEventsToolbar = ({
     a.hostname && b.hostname && a.hostname < b.hostname ? -1 : 1,
   );
 
-  const hostChips = mapHostsChips(t, filters, sortedHosts);
+  const hostLabels = mapHostsLabels(t, filters, sortedHosts);
 
   return (
     <Toolbar
@@ -225,11 +225,11 @@ const ClusterEventsToolbar = ({
         {entityKind === 'cluster' && (
           <CustomToolbarFilter
             categoryName="Hosts"
-            chips={hostChips}
-            deleteChip={(_, chip) =>
-              onHostSelect(typeof chip === 'string' ? chip : chip.key, false)
+            labels={hostLabels}
+            deleteLabel={(_, label) =>
+              onHostSelect(typeof label === 'string' ? label : label.key, false)
             }
-            deleteChipGroup={onDeleteChipGroup}
+            deleteLabelGroup={onDeleteLabelGroup}
           >
             <Dropdown
               isOpen={isHostExpanded}
@@ -242,7 +242,7 @@ const ClusterEventsToolbar = ({
                   isFullWidth
                   onClick={onHostToggle}
                   isExpanded={isHostExpanded}
-                  badge={hostChips.length && <Badge isRead>{hostChips.length}</Badge>}
+                  badge={hostLabels.length && <Badge isRead>{hostLabels.length}</Badge>}
                 >
                   <Placeholder text="Hosts" />
                 </MenuToggle>
@@ -291,10 +291,10 @@ const ClusterEventsToolbar = ({
               node: capitalize(severity),
             }),
           )}
-          deleteLabel={(_, chip) =>
-            onSeveritySelect(typeof chip === 'string' ? chip : chip.key, false)
+          deleteLabel={(_, label) =>
+            onSeveritySelect(typeof label === 'string' ? label : label.key, false)
           }
-          deleteLabelGroup={onDeleteChipGroup}
+          deleteLabelGroup={onDeleteLabelGroup}
           categoryName="Severity"
         >
           <Dropdown
@@ -349,9 +349,11 @@ const ClusterEventsToolbar = ({
               />
             </InputGroupItem>
             <InputGroupItem>
-              <Button icon={<SearchIcon />} variant={ButtonVariant.control} aria-label="search text button">
-                
-              </Button>
+              <Button
+                icon={<SearchIcon />}
+                variant={ButtonVariant.control}
+                aria-label="search text button"
+              ></Button>
             </InputGroupItem>
           </InputGroup>
         </ToolbarItem>

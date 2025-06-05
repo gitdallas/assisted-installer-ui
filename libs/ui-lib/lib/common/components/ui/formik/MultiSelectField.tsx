@@ -76,8 +76,8 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
     onChange && onChange(newValue);
   };
 
-  const deleteChip = (chip: string) => {
-    const newValue = field.value.filter((val) => val !== chip);
+  const deleteLabel = (label: string) => {
+    const newValue = field.value.filter((val) => val !== label);
     setValue(newValue);
     setTextValue('');
     onChange && onChange(newValue);
@@ -117,13 +117,13 @@ const MultiSelectField: React.FC<MultiSelectFieldProps> = ({
           >
             <TextInputGroup>
               <LabelGroup>
-                {field.value.map((currentChip) => (
+                {field.value.map((currentLabel) => (
                   <Label
-                    key={currentChip}
+                    key={currentLabel}
                     variant="outline"
-                    onClose={() => deleteChip(currentChip)}
+                    onClose={() => deleteLabel(currentLabel)}
                   >
-                    {currentChip}
+                    {currentLabel}
                   </Label>
                 ))}
               </LabelGroup>

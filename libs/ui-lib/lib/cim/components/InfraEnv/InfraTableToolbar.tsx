@@ -126,7 +126,7 @@ const InfraTableToolbar: React.FC<InfraTableToolbarProps> = ({
       <ToolbarItem>
         <ToolbarFilter
           labels={statusFilter}
-          deleteLabel={(_, chip) => setStatusFilter(statusFilter?.filter((f) => f !== chip))}
+          deleteLabel={(_, label) => setStatusFilter(statusFilter?.filter((f) => f !== label))}
           deleteLabelGroup={() => setStatusFilter([])}
           categoryName="Status"
         >
