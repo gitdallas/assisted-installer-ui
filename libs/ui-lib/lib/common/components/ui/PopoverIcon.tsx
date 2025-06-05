@@ -32,12 +32,10 @@ const PopoverIcon: React.FC<PopoverIconProps> = ({
       component={component}
       variant={variant}
       onClick={(e) => e.preventDefault()}
-      className={classNames('pf-v5-c-form__group-label-help', 'pf-v5-u-p-0', buttonClassName)}
+      className={classNames('pf-v6-c-form__group-label-help', 'pf-v6-u-p-0', buttonClassName)}
       ouiaId={buttonOuiaId}
       style={buttonStyle}
-    >
-      
-    </Button>
+     />
   </Popover>
 );
 

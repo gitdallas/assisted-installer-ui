@@ -293,7 +293,7 @@ const HostStatus: React.FC<HostStatusProps> = ({
         {children && <FlexItem>{children}</FlexItem>}
         {sublabel && (
           <FlexItem
-            className="pf-v5-u-font-size-xs"
+            className="pf-v6-u-font-size-xs"
             style={{ marginTop: 'calc(-1 * var(--pf-v5-l-flex--spacer--xs))' }}
           >
             <WithHostStatusPopover {...popoverProps}>{sublabel}</WithHostStatusPopover>

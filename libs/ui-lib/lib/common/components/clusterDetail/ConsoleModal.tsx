@@ -86,14 +86,14 @@ export const WebConsoleHint: React.FC<WebConsoleHintProps> = ({ cluster, console
       </Content>
       <ModalExpandableSection
         toggleText={t('ai:Option 1: Add the following records to your DNS server (recommended)')}
-        className="pf-v5-u-pb-md"
+        className="pf-v6-u-pb-md"
         isExpanded={isDNSExpanded}
         onToggle={handleToggle}
         requiredList={aRecords}
       />
       <ModalExpandableSection
         toggleText={t('ai:Option 2: Update your local /etc/hosts or /etc/resolv.conf files')}
-        className="pf-v5-u-pb-md"
+        className="pf-v6-u-pb-md"
         isExpanded={!isDNSExpanded}
         onToggle={handleToggle}
         requiredList={etcHosts}

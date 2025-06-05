@@ -353,7 +353,7 @@ const ClusterEventsToolbar = ({
                 icon={<SearchIcon />}
                 variant={ButtonVariant.control}
                 aria-label="search text button"
-              ></Button>
+               />
             </InputGroupItem>
           </InputGroup>
         </ToolbarItem>

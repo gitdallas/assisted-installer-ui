@@ -64,7 +64,7 @@ const getExpandedHostComponent = (protocolType: StaticProtocolType) => {
             />
           </FormGroup>
           {useBond.value && (
-            <Grid hasGutter className="pf-v5-u-ml-lg">
+            <Grid hasGutter className="pf-v6-u-ml-lg">
               <FormGroup fieldId={`bond-type-${hostIdx}`}>
                 <BondsSelect name={`${fieldName}.bondType`} data-testid={`bond-type-${hostIdx}`} />
               </FormGroup>

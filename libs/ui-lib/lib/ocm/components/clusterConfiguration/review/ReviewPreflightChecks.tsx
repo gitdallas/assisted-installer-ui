@@ -57,7 +57,7 @@ const PreflightChecksDetailExpanded = ({ cluster }: { cluster: Cluster }) => {
             wizardStepsValidationsMap={wizardStepsValidationsMap}
           />
         }
-        classNameValue={'pf-v5-u-mb-md'}
+        classNameValue={'pf-v6-u-mb-md'}
         testId="cluster-preflight-checks"
       />
       <DetailItem
@@ -71,7 +71,7 @@ const PreflightChecksDetailExpanded = ({ cluster }: { cluster: Cluster }) => {
             wizardStepsValidationsMap={wizardStepsValidationsMap}
           />
         }
-        classNameValue={'pf-v5-u-mb-md'}
+        classNameValue={'pf-v6-u-mb-md'}
         testId="host-preflight-checks"
       />
       <ClusterFeatureSupportLevelsDetailItem cluster={cluster} />

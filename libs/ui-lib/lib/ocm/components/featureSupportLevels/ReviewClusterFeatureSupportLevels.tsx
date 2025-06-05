@@ -166,7 +166,7 @@ const SupportLevel = ({ cluster }: SupportLevelProps) => {
           />
         )
       }
-      classNameValue={'pf-v5-u-mb-md'}
+      classNameValue={'pf-v6-u-mb-md'}
       testId="feature-support-levels"
     />
   );

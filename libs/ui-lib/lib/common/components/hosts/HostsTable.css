@@ -2,7 +2,7 @@
   padding-top: var(--pf-v5-global--spacer--lg) !important;
 }
 
-.hosts-table .pf-v5-c-dropdown__toggle-text {
+.hosts-table .pf-v6-c-dropdown__toggle-text {
   color: var(--pf-v5-global--Color--100) !important;
 }
 

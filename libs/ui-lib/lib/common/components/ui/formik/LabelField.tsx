@@ -54,7 +54,7 @@ export const LabelField: React.FC<LabelFieldProps> = ({
   return (
     <FormGroup fieldId={fieldId} label={label} isRequired={isRequired} labelHelp={labelIcon}>
       {t("ai:Enter key=value and then press 'enter' or 'space' or use a ',' to input the label.")}
-      <div className="co-search-input pf-v5-c-form-control">
+      <div className="co-search-input pf-v6-c-form-control">
         <TagsInput
           {...field}
           onChange={(tags) => {
