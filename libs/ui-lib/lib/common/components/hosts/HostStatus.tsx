@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Popover,
-  Button,
-  Content,
-  FlexItem,
-  Flex,
-  Stack,
-  StackItem,
-} from '@patternfly/react-core';
+import { Popover, Button, Content, FlexItem, Flex, Stack, StackItem } from '@patternfly/react-core';
 import { PopoverProps } from '@patternfly/react-core/dist/js/components/Popover/Popover';
 import hdate from 'human-date';
 
@@ -294,7 +286,7 @@ const HostStatus: React.FC<HostStatusProps> = ({
         {sublabel && (
           <FlexItem
             className="pf-v6-u-font-size-xs"
-            style={{ marginTop: 'calc(-1 * var(--pf-v5-l-flex--spacer--xs))' }}
+            style={{ marginTop: 'calc(-1 * var(--pf-v6-l-flex--spacer--xs))' }}
           >
             <WithHostStatusPopover {...popoverProps}>{sublabel}</WithHostStatusPopover>
           </FlexItem>

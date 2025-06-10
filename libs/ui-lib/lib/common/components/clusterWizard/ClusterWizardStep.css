@@ -3,7 +3,7 @@
 }
 
 .wizard-nav-item-warning-icon {
-  margin-left: var(--pf-v5-global--spacer--sm);
+  margin-left: var(--pf-v6-global--spacer--sm);
 }
 
 .cluster-wizard .cluster-wizard-step__footer {
@@ -16,7 +16,7 @@
 }
 
 .cluster-wizard.pf-v6-c-wizard {
-  --pf-v5-c-wizard__nav--Width: 19rem;
+  --pf-v6-c-wizard__nav--Width: 19rem;
 }
 
 .pf-v6-c-wizard__inner-wrap {
