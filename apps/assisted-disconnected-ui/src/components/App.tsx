@@ -1,6 +1,13 @@
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom-v5-compat';
-import { Brand, Masthead, MastheadLogo, MastheadMain, MastheadBrand, Page } from '@patternfly/react-core';
+import {
+  Brand,
+  Masthead,
+  MastheadLogo,
+  MastheadMain,
+  MastheadBrand,
+  Page,
+} from '@patternfly/react-core';
 import { Provider } from 'react-redux';
 import { Store, useFeatureDetection } from '@openshift-assisted/ui-lib/ocm';
 import { FeatureListType } from '@openshift-assisted/ui-lib/lib/common';
@@ -27,15 +34,17 @@ export const App: React.FC = () => {
   const header = (
     <Masthead id="masthead">
       <MastheadMain>
-        <MastheadBrand data-codemods><MastheadLogo data-codemods>
-          <Brand
-            src="/logo.svg"
-            alt="OpenShift Container Platform Assisted Installer"
-            style={{ width: '188px' }}
-          >
-            <source src="/logo.svg" />
-          </Brand>
-        </MastheadLogo></MastheadBrand>
+        <MastheadBrand>
+          <MastheadLogo>
+            <Brand
+              src="/logo.svg"
+              alt="OpenShift Container Platform Assisted Installer"
+              style={{ width: '188px' }}
+            >
+              <source src="/logo.svg" />
+            </Brand>
+          </MastheadLogo>
+        </MastheadBrand>
       </MastheadMain>
     </Masthead>
   );

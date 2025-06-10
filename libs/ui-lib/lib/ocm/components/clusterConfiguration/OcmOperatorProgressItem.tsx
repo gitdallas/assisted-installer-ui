@@ -4,8 +4,8 @@ import { CheckCircleIcon } from '@patternfly/react-icons/dist/js/icons/check-cir
 import { ExclamationCircleIcon } from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
 import { InProgressIcon } from '@patternfly/react-icons/dist/js/icons/in-progress-icon';
 import { PendingIcon } from '@patternfly/react-icons/dist/js/icons/pending-icon';
-import { t_temp_dev_tbd as dangerColor /* CODEMODS: you should update this color token, original v5 token was global_danger_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as okColor /* CODEMODS: you should update this color token, original v5 token was global_success_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_icon_color_status_danger_default as dangerColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_danger_default';
+import { t_global_color_status_success_default as okColor } from '@patternfly/react-tokens/dist/js/t_global_color_status_success_default';
 import { pluralize } from 'humanize-plus';
 import { TFunction } from 'i18next';
 

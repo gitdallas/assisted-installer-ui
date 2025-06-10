@@ -1,8 +1,9 @@
 import { CheckCircleIcon } from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 import { InfoCircleIcon } from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import React from 'react';
-import { t_temp_dev_tbd as okColor /* CODEMODS: you should update this color token, original v5 token was global_success_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { Content, } from '@patternfly/react-core';
+import { t_global_color_status_success_default as okColor } from '@patternfly/react-tokens/dist/js/t_global_color_status_success_default';
+import { t_global_color_status_info_100 as infoColor } from '@patternfly/react-tokens/dist/js/t_global_color_status_info_100';
+import { Content } from '@patternfly/react-core';
 import {
   FeatureId,
   FeatureIdToSupportLevel,
@@ -64,7 +65,9 @@ const getPreviewFeatureList = (supportLevelMap: FeatureIdToSupportLevel) => {
     return null;
   }
   const featureList = previewSupportLevels[supportLevel].map((featureId: FeatureId) => (
-    <Content component="li" key={featureId}>{getFeatureReviewText(featureId)}</Content>
+    <Content component="li" key={featureId}>
+      {getFeatureReviewText(featureId)}
+    </Content>
   ));
   return (
     <>
@@ -86,13 +89,13 @@ export const LimitedSupportedCluster = ({
   <Content>
     {showVersionWarning && (
       <Content component="p">
-        <UiIcon size="sm" icon={<InfoCircleIcon color="var(--pf-t--temp--dev--tbd)"/* CODEMODS: original v5 color was --pf-v5-global--info-color--100 */ />} />
+        <UiIcon size="sm" icon={<InfoCircleIcon color={infoColor.var} />} />
         &nbsp;The installed OpenShift version is not production-ready
       </Content>
     )}
     {Object.keys(clusterFeatureSupportLevels).length > 0 && (
       <>
-        <UiIcon size="sm" icon={<InfoCircleIcon color="var(--pf-t--temp--dev--tbd)"/* CODEMODS: original v5 color was --pf-v5-global--info-color--100 */ />} />
+        <UiIcon size="sm" icon={<InfoCircleIcon color={infoColor.var} />} />
         &nbsp;Your cluster will be subject to support limitations because it includes:
         <Content component="ul">{getPreviewFeatureList(clusterFeatureSupportLevels)}</Content>
       </>

@@ -10,9 +10,6 @@ import {
   EmptyStateFooter,
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
-import {
-  t_temp_dev_tbd as globalDangerColor200 /* CODEMODS: you should update this color token, original v5 token was global_danger_color_200 */,
-} from '@patternfly/react-tokens/dist/js/t_temp_dev_tbd';
 import { useTranslation } from '../../../hooks/use-translation-wrapper';
 
 type ErrorStateProps = {
@@ -48,14 +45,19 @@ const ErrorState = ({
   content,
   fetchData,
   icon = ExclamationCircleIcon,
-  iconColor = globalDangerColor200.value,
   variant = EmptyStateVariant.sm,
   primaryAction,
   actions,
 }: ErrorStateProps) => {
   return (
     <Bullseye>
-      <EmptyState headingLevel="h2" icon={icon} titleText={<>{title}</>} variant={variant}>
+      <EmptyState
+        status="danger"
+        headingLevel="h2"
+        icon={icon}
+        titleText={<>{title}</>}
+        variant={variant}
+      >
         <EmptyStateBody>{content || <DefaultErrorContent fetchData={fetchData} />}</EmptyStateBody>
         <EmptyStateFooter>
           {primaryAction}

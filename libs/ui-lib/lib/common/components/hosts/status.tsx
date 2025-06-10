@@ -9,9 +9,9 @@ import { InProgressIcon } from '@patternfly/react-icons/dist/js/icons/in-progres
 import { LinkIcon } from '@patternfly/react-icons/dist/js/icons/link-icon';
 import { PendingIcon } from '@patternfly/react-icons/dist/js/icons/pending-icon';
 import { PlusIcon } from '@patternfly/react-icons/dist/js/icons/plus-icon';
-import { t_temp_dev_tbd as dangerColor /* CODEMODS: you should update this color token, original v5 token was global_danger_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as warningColor /* CODEMODS: you should update this color token, original v5 token was global_warning_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as okColor /* CODEMODS: you should update this color token, original v5 token was global_success_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_icon_color_status_danger_default as dangerColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_danger_default';
+import { t_global_icon_color_status_warning_default as warningColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_warning_default';
+import { t_global_color_status_success_default as okColor } from '@patternfly/react-tokens/dist/js/t_global_color_status_success_default';
 import { chart_color_blue_300 as blueColor } from '@patternfly/react-tokens/dist/js/chart_color_blue_300';
 import { Host } from '@openshift-assisted/types/assisted-installer-service';
 import { HostStatus } from './types';

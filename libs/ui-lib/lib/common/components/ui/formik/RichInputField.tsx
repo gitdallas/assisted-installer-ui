@@ -20,9 +20,9 @@ import { CheckIcon } from '@patternfly/react-icons/dist/js/icons/check-icon';
 import { ExclamationCircleIcon } from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
 import { InfoCircleIcon } from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import { TimesIcon } from '@patternfly/react-icons/dist/js/icons/times-icon';
-import { t_temp_dev_tbd as okColor /* CODEMODS: you should update this color token, original v5 token was global_palette_green_500 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as dangerColor /* CODEMODS: you should update this color token, original v5 token was global_danger_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as blueInfoColor /* CODEMODS: you should update this color token, original v5 token was global_palette_blue_300 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_color_status_success_default as okColor } from '@patternfly/react-tokens/dist/js/t_global_color_status_success_default';
+import { t_global_icon_color_status_danger_default as dangerColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_danger_default';
+import { t_global_icon_color_status_info_default as blueInfoColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_info_default';
 
 import { InputFieldProps as BaseInputProps } from './types';
 import { getFieldId } from './utils';
@@ -62,7 +62,7 @@ export const RichValidation: React.FC<RichValidationProps> = ({
       {Object.keys(richValidationMessages).map((key) => {
         const variant = getHelperTextVariant(richValidationMessages[key], value, error);
         return (
-          <HelperTextItem key={key}  component="li" {...variant}>
+          <HelperTextItem key={key} component="li" {...variant}>
             {richValidationMessages[key]}
           </HelperTextItem>
         );
@@ -152,13 +152,19 @@ const RichInputField: React.FC<RichInputFieldPropsProps> = React.forwardRef(
               }
               withFocusTrap={false}
             >
-              <Button icon={!isValid ? (
-                  <ExclamationCircleIcon color={dangerColor.value} />
-                ) : value ? (
-                  <CheckCircleIcon color={okColor.value} />
-                ) : (
-                  <InfoCircleIcon color={blueInfoColor.value} />
-                )} variant="plain" aria-label="Validation" />
+              <Button
+                icon={
+                  !isValid ? (
+                    <ExclamationCircleIcon color={dangerColor.value} />
+                  ) : value ? (
+                    <CheckCircleIcon color={okColor.value} />
+                  ) : (
+                    <InfoCircleIcon color={blueInfoColor.value} />
+                  )
+                }
+                variant="plain"
+                aria-label="Validation"
+              />
             </Popover>
           </InputGroupItem>
         </InputGroup>

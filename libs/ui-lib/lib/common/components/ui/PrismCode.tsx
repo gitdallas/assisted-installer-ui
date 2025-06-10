@@ -1,14 +1,14 @@
 import React from 'react';
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
 import { Content, ContentVariants, ClipboardCopy, clipboardCopyFunc } from '@patternfly/react-core';
-import { t_temp_dev_tbd as global_Color_100 /* CODEMODS: you should update this color token */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as global_palette_purple_400 /* CODEMODS: you should update this color token */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as global_palette_blue_300 /* CODEMODS: you should update this color token */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_color_nonstatus_gray_default as globalGray } from '@patternfly/react-tokens/dist/js/t_global_color_nonstatus_gray_default';
+import { t_global_color_nonstatus_purple_default as globalPurple } from '@patternfly/react-tokens/dist/js/t_global_color_nonstatus_purple_default';
+import { t_global_color_nonstatus_blue_default as globalBlue } from '@patternfly/react-tokens/dist/js/t_global_color_nonstatus_blue_default';
 import defaultTheme from 'prism-react-renderer/themes/github';
 import './PrismCode.css';
 export const SimpleAIPrismTheme = {
   plain: {
-    color: global_Color_100.value,
+    color: globalGray.value,
     backgroundColor: defaultTheme.plain.backgroundColor,
     fontSize: '.93em',
   },
@@ -16,13 +16,13 @@ export const SimpleAIPrismTheme = {
     {
       types: ['variable'],
       style: {
-        color: global_palette_blue_300.value,
+        color: globalBlue.value,
       },
     },
     {
       types: ['class-name', 'function', 'tag', 'attr-name'],
       style: {
-        color: global_palette_purple_400.value,
+        color: globalPurple.value,
       },
     },
   ],

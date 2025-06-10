@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Flex, FlexItem, Popover } from '@patternfly/react-core';
 import { InfoCircleIcon } from '@patternfly/react-icons/dist/js/icons/info-circle-icon';
 import { Link } from 'react-router-dom-v5-compat';
-import { t_temp_dev_tbd as blueInfoColor /* CODEMODS: you should update this color token, original v5 token was global_palette_blue_300 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_icon_color_status_info_default as blueInfoColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_info_default';
 import {
   getHostname,
   getInventory,

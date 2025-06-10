@@ -1,7 +1,7 @@
 import React, { Fragment, ReactElement } from 'react';
 import { Alert, AlertGroup, AlertVariant, Level, LevelItem } from '@patternfly/react-core';
-import { t_temp_dev_tbd as warningColor /* CODEMODS: you should update this color token, original v5 token was global_warning_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
-import { t_temp_dev_tbd as okColor /* CODEMODS: you should update this color token, original v5 token was global_success_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_icon_color_status_warning_default as warningColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_warning_default';
+import { t_global_color_status_success_default as okColor } from '@patternfly/react-tokens/dist/js/t_global_color_status_success_default';
 import { PendingIcon } from '@patternfly/react-icons/dist/js/icons/pending-icon';
 import { CheckCircleIcon } from '@patternfly/react-icons/dist/js/icons/check-circle-icon';
 import { ExclamationTriangleIcon } from '@patternfly/react-icons/dist/js/icons/exclamation-triangle-icon';

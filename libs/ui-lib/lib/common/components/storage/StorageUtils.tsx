@@ -76,7 +76,13 @@ export const odfUsageColumn = (excludeMasters: boolean): TableRow<Host> => {
       const isExcluded = excludeMasters && isMaster;
       return {
         title: isExcluded ? (
-          <div style={{ color: "var(--pf-t--temp--dev--tbd)"/* CODEMODS: original v5 color was --pf-v5-global--disabled-color--100 */ }}>Excluded for ODF</div>
+          <div
+            style={{
+              color: 'var(--pf-t--global--icon--color--disabled)',
+            }}
+          >
+            Excluded for ODF
+          </div>
         ) : (
           'Use ODF'
         ),

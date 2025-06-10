@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ConnectedIcon } from '@patternfly/react-icons/dist/js/icons/connected-icon';
 import { ExclamationCircleIcon } from '@patternfly/react-icons/dist/js/icons/exclamation-circle-icon';
-import { t_temp_dev_tbd as dangerColor /* CODEMODS: you should update this color token, original v5 token was global_danger_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_icon_color_status_danger_default as dangerColor } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_danger_default';
 import { hostStatus } from '../../../common';
 import { HostStatus } from '../../../common/components/hosts/types';
 import { TFunction } from 'i18next';

@@ -1,17 +1,8 @@
 import React from 'react';
-import {
-	Button,
-	ButtonVariant,
-	Spinner,
-	Title
-} from '@patternfly/react-core';
-import {
-	Modal,
-	ModalVariant,
-	ModalBoxBody
-} from '@patternfly/react-core/deprecated';
+import { Button, ButtonVariant, Spinner, Title } from '@patternfly/react-core';
+import { Modal, ModalVariant, ModalBoxBody } from '@patternfly/react-core/deprecated';
 import { ExclamationTriangleIcon } from '@patternfly/react-icons/dist/js/icons/exclamation-triangle-icon';
-import { t_temp_dev_tbd as globalWarningColor100 /* CODEMODS: you should update this color token, original v5 token was global_warning_color_100 */ } from "@patternfly/react-tokens/dist/js/t_temp_dev_tbd";
+import { t_global_icon_color_status_warning_default as globalIconColorWarning } from '@patternfly/react-tokens/dist/js/t_global_icon_color_status_warning_default';
 import { ToolbarButton } from './Toolbar';
 import { Cluster, Event } from '@openshift-assisted/types/assisted-installer-service';
 import { EventListFetchProps, EventsEntityKind } from '../../types';
@@ -122,7 +113,7 @@ export const EventsModal = ({
               </>
             }
             icon={ExclamationTriangleIcon}
-            iconColor={globalWarningColor100.value}
+            iconColor={globalIconColorWarning.value}
           />
         ) : (
           <EventListFetch className="events-modal__event-list" setLoading={setLoading} {...rest} />
