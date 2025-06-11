@@ -70,7 +70,8 @@ describe('Events modal behavior', () => {
     });
 
     eventsModal.pagination.menuText.click();
-    eventsModal.pagination.perPageOption(50).click();
+    cy.get(`[data-action=per-page-50]`).click();
+    // eventsModal.pagination.perPageOption(50).click();
     cy.wait('@events').then(() => {
       eventsModal.contents.should('have.length', 28);
       eventsModal.pagination.first.should('be.disabled');
