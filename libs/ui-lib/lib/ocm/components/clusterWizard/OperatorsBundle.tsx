@@ -28,7 +28,7 @@ import { useNewFeatureSupportLevel } from '../../../common/components/newFeature
 import { useFeature } from '../../hooks/use-feature';
 import { useSelector } from 'react-redux';
 import { selectIsCurrentClusterSNO } from '../../store/slices/current-cluster/selectors';
-import { getNewBundleOperators } from '../clusterConfiguration/operators/utils';
+
 import { bundleSpecs } from '../clusterConfiguration/operators/bundleSpecs';
 import {
   highlightMatch,
@@ -149,15 +149,6 @@ const BundleCard = ({
       ? [...values.selectedBundles, bundle.id || '']
       : values.selectedBundles.filter((sb) => sb !== bundle.id);
     setFieldValue('selectedBundles', newBundles);
-    const newOperators = getNewBundleOperators(
-      values.selectedOperators,
-      newBundles,
-      bundles,
-      bundle,
-      preflightRequirements,
-      checked,
-    );
-    setFieldValue('selectedOperators', newOperators);
   };
 
   const isSelected = values.selectedBundles.includes(bundle.id || '');
