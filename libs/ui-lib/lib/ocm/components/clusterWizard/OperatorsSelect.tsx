@@ -65,9 +65,22 @@ const OperatorsSelect = ({
     });
   }, [isSingleClusterFeatureEnabled, supportedOperators]);
 
-  const selectedOperators = values.selectedOperators.filter(
-    (opKey) => operators.includes(opKey) && !!opSpecs[opKey],
-  );
+  // Calculate selected operators for display (including bundle operators)
+  const selectedOperatorsForDisplay = React.useMemo(() => {
+    // Get manually selected operators
+    const manualOperators = values.selectedOperators.filter(
+      (opKey: string) => operators.includes(opKey) && !!opSpecs[opKey],
+    );
+
+    // Get bundle operators
+    const bundleOperators = values.selectedBundles.flatMap(
+      (bundleId: string) => bundles.find((b) => b.id === bundleId)?.operators || [],
+    );
+
+    // Combine and deduplicate
+    const allOperators = [...manualOperators, ...bundleOperators];
+    return allOperators.filter((op, index, array) => array.indexOf(op) === index);
+  }, [values.selectedOperators, values.selectedBundles, bundles, operators, opSpecs]);
 
   if (isLoading) {
     return <LoadingState />;
@@ -76,7 +89,7 @@ const OperatorsSelect = ({
   return (
     <>
       <ExpandableSection
-        toggleText={`Single Operators (${operators.length} | ${selectedOperators.length} selected)`}
+        toggleText={`Single Operators (${operators.length} | ${selectedOperatorsForDisplay.length} selected)`}
         onToggle={() => setIsExpanded(!isExpanded)}
         isExpanded={isExpanded}
         data-testid="single-operators-section"

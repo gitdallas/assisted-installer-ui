@@ -8,16 +8,17 @@ function calculateSelectedOperators(
   bundles: Bundle[],
   opSpecs: Record<string, any>,
 ): string[] {
-  // Calculate all selected operators (direct selections + bundle selections)
+  // Get manually selected operators
+  const manualOperators = values.selectedOperators.filter((opKey: string) => !!opSpecs[opKey]);
+
+  // Get bundle operators
   const bundleOperators = values.selectedBundles.flatMap(
-    (bundleId) => bundles.find((b) => b.id === bundleId)?.operators || [],
+    (bundleId: string) => bundles.find((b) => b.id === bundleId)?.operators || [],
   );
 
-  const allSelectedOperators = values.selectedOperators
-    .concat(bundleOperators)
-    .filter((op, index, array) => array.indexOf(op) === index); // Remove duplicates
-
-  return allSelectedOperators.filter((opKey) => !!opSpecs[opKey]);
+  // Combine and deduplicate
+  const allOperators = [...manualOperators, ...bundleOperators];
+  return allOperators.filter((op, index, array) => array.indexOf(op) === index);
 }
 
 describe('OperatorsSelect counting logic', () => {
